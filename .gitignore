@@ -30,3 +30,19 @@
 *.exe
 *.out
 *.app
+
+# CMake
+CMakeCache.txt
+CMakeFiles
+Makefile
+cmake_install.cmake
+
+# Idea
+.idea
+
+# perf
+perf.data
+perf.data.old
+perf.data.folded
+flame.svg
+flame.svg.old
