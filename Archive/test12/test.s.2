@@ -1,0 +1,31 @@
+	.file	"test.cpp"
+	.text
+	.section	.text.startup,"ax",@progbits
+	.p2align 4,,15
+	.globl	main
+	.type	main, @function
+main:
+.LFB841:
+	.cfi_startproc
+	xorl	%eax, %eax
+	.p2align 4,,10
+	.p2align 3
+.L2:
+	leal	1(%rax), %edx
+	movl	%edx, %ecx
+	andl	$1, %ecx
+	leaq	0(,%rcx,8), %rsi
+	movl	%eax, _ZL5sdata(,%rcx,8)
+	movl	%eax, _ZL5sdata+4(%rsi)
+	movl	%edx, %eax
+	cmpl	$1000000000, %edx
+	jne	.L2
+	movl	_ZL5sdata(%rip), %eax
+	ret
+	.cfi_endproc
+.LFE841:
+	.size	main, .-main
+	.local	_ZL5sdata
+	.comm	_ZL5sdata,16,16
+	.ident	"GCC: (GNU) 8.1.0"
+	.section	.note.GNU-stack,"",@progbits

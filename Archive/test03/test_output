@@ -1,0 +1,8 @@
+Running ./a.out program on 64-bit system.
+Test, 4, 84, 42, 0x7fff90756b3c
+s.c_str() = Test, s.size() = 4, (int)s[0] = 84, val = 42, &val = 0x7fff90756b3c
+0 test1 test2 unkn.enum1:3 4
+0
+255 = 255, HEX(255) = 0xFF, HEx(255) = 0xff, 255 = 255
+1, 0, true, false
+!         5!       0.1!   0.10000!10003.14!

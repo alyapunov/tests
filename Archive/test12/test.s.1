@@ -1,0 +1,50 @@
+	.file	"test.cpp"
+	.text
+	.section	.text.startup,"ax",@progbits
+	.p2align 4,,15
+	.globl	main
+	.type	main, @function
+main:
+.LFB841:
+	.cfi_startproc
+	movl	$0, -36(%rsp)
+	xorl	%eax, %eax
+	xorl	%edx, %edx
+	jmp	.L3
+	.p2align 4,,10
+	.p2align 3
+.L5:
+	movl	-40(%rsp), %eax
+.L3:
+	addl	$1, %eax
+	movl	%eax, -40(%rsp)
+	andl	$1, %eax
+	leaq	-36(%rsp,%rax,8), %rax
+	movl	%edx, (%rax)
+	movl	%edx, 4(%rax)
+	addl	$1, %edx
+	cmpl	$1000000000, %edx
+	jne	.L5
+	movl	-36(%rsp), %eax
+	ret
+	.cfi_endproc
+.LFE841:
+	.size	main, .-main
+	.p2align 4,,15
+	.type	_GLOBAL__sub_I_main, @function
+_GLOBAL__sub_I_main:
+.LFB848:
+	.cfi_startproc
+	movq	$0, _ZL5sdata(%rip)
+	movq	$0, _ZL5sdata+8(%rip)
+	ret
+	.cfi_endproc
+.LFE848:
+	.size	_GLOBAL__sub_I_main, .-_GLOBAL__sub_I_main
+	.section	.init_array,"aw"
+	.align 8
+	.quad	_GLOBAL__sub_I_main
+	.local	_ZL5sdata
+	.comm	_ZL5sdata,16,16
+	.ident	"GCC: (GNU) 8.1.0"
+	.section	.note.GNU-stack,"",@progbits
